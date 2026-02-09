@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Product</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+    <h1>Edit Product</h1>
+
+    <div class="form-container">
+        <form action="/update-product/<%= product.id %>" method="POST">
+            <div>
+                <label>Name:</label><br>
+                <input type="text" name="name" value="<%= product.name %>" required>
+            </div><br>
+            <div>
+                <label>Category:</label><br>
+                <select name="category" required>
+                    <option value="Electronics" <%=product.category==='Electronics' ? 'selected' : '' %>>Electronics
+                    </option>
+                    <option value="Fashion" <%=product.category==='Fashion' ? 'selected' : '' %>>Fashion</option>
+                    <option value="Home" <%=product.category==='Home' ? 'selected' : '' %>>Home</option>
+                    <option value="Books" <%=product.category==='Books' ? 'selected' : '' %>>Books</option>
+                </select>
+            </div><br>
+            <div>
+                <label>Price:</label><br>
+                <input type="number" name="price" value="<%= product.price %>" required>
+            </div><br>
+
+            <button type="submit" class="btn btn-add">Update Product</button>
+            <a href="/" class="btn" style="background-color: #ccc; color: black;">Cancel</a>
+        </form>
+    </div>
+</body>
+
+</html>
